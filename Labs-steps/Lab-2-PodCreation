@@ -1,0 +1,21 @@
+##### Create Pod ######
+
+Creating the pod using the Spec file
+vim pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+  namespace: fleet1
+spec:
+  containers:
+  - name: web
+    image: nginx
+
+:wq (save and exit)
+
+$ kubectl apply -f pod.yaml #### apply the pod.yaml
+$ kubectl get pod -n fleet1 ###  list the pods available in the namespace
+kubectl get pods -n fleet1 -o wide -- to display with detailed mode
+
+kubectl delete -f pod.yaml ### delete the pods from the namespace

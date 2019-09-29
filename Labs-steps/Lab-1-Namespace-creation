@@ -1,0 +1,36 @@
+##### Creating Namespace ########
+Create the namespace with command:
+$ kubectl create namespace demo
+
+Get the list of namespaces : $ kubectl get namespace
+
+kubectl delete namespace demo
+__________________________
+
+## Creating namespace using yml - spec file
+$ vim namespace.yaml
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fleet1
+:wq (save and exit)
+__________________________
+
+kubectl apply -f namespace.ymal
+
+prasancto@Azure:~/Labs$ kubectl get namespaces
+NAME          STATUS   AGE
+default       Active   21m
+demo-1        Active   6m55s
+fleet1        Active   12s
+kube-public   Active   21m
+kube-system   Active   21m
+
+delete namespaces:
+
+kubectl delete namespace demo-project
+
+kubectl delete -f namespace.yaml
+
+kubectl get namespace
